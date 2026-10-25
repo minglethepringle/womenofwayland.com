@@ -1,0 +1,7 @@
+[
+  { "number": 5 },
+  { "number": 4 },
+  { "number": 3, "art": "/assets/img/season-3-art.jpg" },
+  { "number": 2, "art": "/assets/img/season-2-art.jpg" },
+  { "number": 1, "art": "/assets/img/season-1-art.jpg" }
+]

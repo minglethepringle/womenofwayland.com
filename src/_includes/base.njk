@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and page.url != "/" %}{{ title }} – {{ site.title }}{% else %}{{ site.title }} – {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{{ excerpt or description or site.tagline }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Lato:wght@400;700&family=Lora:ital@1&family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="{{ bodyClass }}">
+  <header class="site-header{% if not heroImage %} site-header--solid{% endif %}">
+    <div class="site-header__inner">
+      <a class="site-logo" href="/"><img src="/assets/img/logo.png" alt="Women of Wayland – the podcast" width="70" height="70"></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          {%- for item in site.nav %}
+          <li{% if item.children %} class="has-children"{% endif %}>
+            <a href="{{ item.url }}">{{ item.label }}</a>
+            {%- if item.children %}
+            <ul class="sub-menu">
+              {%- for child in item.children %}
+              <li><a href="{{ child.url }}">{{ child.label }}</a></li>
+              {%- endfor %}
+            </ul>
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  {% if heroImage -%}
+  <section class="page-hero{% if heroClass %} {{ heroClass }}{% endif %}" style="background-image:url('{{ heroImage | url }}')">
+    <div class="page-hero__content">
+      {% if heroHtml %}{{ heroHtml | safe }}{% else %}<h1>{{ heroTitle or title }}</h1>{% endif %}
+    </div>
+  </section>
+  {%- endif %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a class="site-logo" href="/"><img src="/assets/img/logo.png" alt="Women of Wayland – the podcast" width="44" height="44" loading="lazy"></a>
+      <nav aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/about-the-show/">About</a>
+        <a href="/all-seasons/">All Episodes</a>
+        <a href="/sponsors/">Sponsors</a>
+      </nav>
+      <p>&copy; 2019–2026 Women of Wayland Podcast</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector(".nav-toggle");
+    toggle.addEventListener("click", () => {
+      const open = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!open));
+      document.body.classList.toggle("nav-open", !open);
+    });
+  </script>
+</body>
+</html>

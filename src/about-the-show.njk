@@ -1,0 +1,47 @@
+---
+layout: base.njk
+title: About The Show
+heroTitle: About the Show
+heroImage: /assets/img/hero-about-show.jpg
+permalink: /about-the-show/
+testimonials:
+  - quote: Yamini has a easy way about going through the podcast and bringing out the powerful story and the message with ease. So grab your glass of wine and change into your pajamas and listen with all your heart. You will love it.
+    author: Baba black sheeeeep
+  - quote: Very rarely we find a program that is close to local community yet interesting and refreshing. This program is just that and much much more. Women of Wayland is passionate, courageous and shows the leaders in our community.
+    author: Vish.Kumar
+  - quote: What an absolutely wonderful concept of the podcast. Having a platform for women to share their stories, journeys, the roller coaster rides that we go through in the different roles women embody! What empowers them, the inspirations behind their choices, the reasons to keep going.
+    author: NehaGandhi
+  - quote: It’s so amazing to hear the stories of women in our community that have an iron will power that not just inspire but also become a reference for other women to fight this patriarchal society.
+    author: Guraksha
+  - quote: As a woman myself it’s inspiring and uplifting to hear amazing stories about the real lives and journey that my fellow moms, sisters, and neighbors are embarking on. We see people everyday around us and never get to know more about what happens behind the scene in their lives.
+    author: Kial C
+  - quote: She uncovers the super hero in these women and allows the listeners not only to be inspired by them but also be motivated to pursue their own dreams. She gives us an insight of what the Wayland community is and makes you want to be part of it.
+    author: BeryCT
+---
+<section class="container">
+  <h2 class="tagline-heading">We believe great things start next door.</h2>
+  <img class="wide-image" src="/assets/img/studio.jpg" alt="The Women of Wayland podcast studio: a desk with microphones, headphones and a Women of Wayland sign" width="1511" height="956">
+  <div class="prose">
+    <p>Women of Wayland is a podcast born out of the core belief that the most unassuming women around us have the most remarkable stories to tell.</p>
+    <p>We are a seasonal podcast and are currently gearing up for next season. We bring you stories—of hope, triumph and of powerful, inspiring women—from next door.</p>
+    <p>Every episode, we will get into soulful conversations that explore a unique side of the guest. Our format is mostly interview-based, though we also have anonymous and travel stories that are narrated. In addition, each season, we also exclusively feature a “Man of Wayland” story, focusing on a man in our town whose work is impacting women’s lives.</p>
+    <p>Through time, our vision is to scale this storytelling across other towns in Massachusetts and expand our team. Your support is very much appreciated!</p>
+  </div>
+</section>
+
+<section class="band band--alt">
+  <div class="container center">
+    <h2 class="display-heading">WHAT PEOPLE ARE SAYING</h2>
+    <div class="stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+    <div class="testimonials">
+      {%- for t in testimonials %}
+      <figure class="testimonial">
+        <blockquote>“{{ t.quote }}”</blockquote>
+        <figcaption>{{ t.author }}</figcaption>
+      </figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "listen-cta.njk" %}

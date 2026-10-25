@@ -1,0 +1,30 @@
+{
+  "title": "Women of Wayland Podcast",
+  "tagline": "Celebrating Women in the Neighborhood",
+  "url": "https://womenofwayland.com",
+  "spotify": "https://open.spotify.com/show/0YLaJkOnRFuXNRFpzH6o0K",
+  "apple": "https://podcasts.apple.com/us/podcast/women-of-wayland-the-podcast/id1471535994",
+  "nav": [
+    { "label": "Home", "url": "/" },
+    {
+      "label": "About",
+      "url": "/about-the-show/",
+      "children": [
+        { "label": "About The Show", "url": "/about-the-show/" },
+        { "label": "About Us", "url": "/about-us/" }
+      ]
+    },
+    {
+      "label": "All Episodes",
+      "url": "/all-seasons/",
+      "children": [
+        { "label": "Season 5", "url": "/season-5/" },
+        { "label": "Season 4", "url": "/season-4/" },
+        { "label": "Season 3", "url": "/season-3/" },
+        { "label": "Season 2", "url": "/season-2/" },
+        { "label": "Season 1", "url": "/season-1/" }
+      ]
+    },
+    { "label": "Sponsors", "url": "/sponsors/" }
+  ]
+}

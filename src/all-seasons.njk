@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: All Seasons
+heroImage: /assets/img/hero-all-seasons.jpg
+heroClass: page-hero--full
+permalink: /all-seasons/
+eleventyComputed:
+  heroHtml: |
+    <h1 class="forum-title">All Seasons</h1>
+    <nav class="season-pills" aria-label="Seasons">
+      {%- for s in seasons %}
+      <a href="/season-{{ s.number }}/">Season {{ s.number }}</a>
+      {%- endfor %}
+    </nav>
+---

@@ -1,0 +1,43 @@
+---
+layout: base.njk
+title: Sponsors
+heroTitle: Sponsorships
+heroImage: /assets/img/hero-sponsors.jpg
+permalink: /sponsors/
+groups:
+  - heading: SEASON 4 PRODUCTION SPONSORS
+    sponsors:
+      - name: Lauren Dunne Astley Memorial Fund
+        logo: ldamf.jpg
+        url: https://laurendunneastleymemorialfund.org/
+      - name: Mass Cultural Council
+        logo: mass-cultural-council.png
+        url: https://massculturalcouncil.org/
+  - heading: SEASON 4 EPISODE SPONSORS
+    sponsors:
+      - name: Engel & Völkers – Peace Nguyen
+        logo: engel-volkers-peace-nguyen.png
+      - name: Life Techs
+        logo: life-techs.jpg
+      - name: Harmoney Bookkeeping Company
+        logo: harmoney.png
+      - name: btone Fitness Wayland
+        logo: btone-fitness.png
+      - name: Leah Hart
+        logo: leah-hart.png
+---
+<section class="container sponsors">
+  {%- for group in groups %}
+  <div class="sponsor-group">
+    <h2>{{ group.heading }}</h2>
+    <div class="sponsor-logos">
+      {%- for s in group.sponsors %}
+      {%- set img %}<img src="/assets/img/sponsors/{{ s.logo }}" alt="{{ s.name }}" loading="lazy">{% endset %}
+      {%- if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ img | safe }}</a>{% else %}<div>{{ img | safe }}</div>{% endif %}
+      {%- endfor %}
+    </div>
+  </div>
+  {%- endfor %}
+</section>
+
+{% include "listen-cta.njk" %}

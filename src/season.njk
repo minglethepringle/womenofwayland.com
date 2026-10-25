@@ -1,0 +1,26 @@
+---
+layout: base.njk
+heroImage: /assets/img/hero-season.jpg
+pagination:
+  data: seasons
+  size: 1
+  alias: season
+permalink: "/season-{{ season.number }}/"
+eleventyComputed:
+  title: "Season {{ season.number }}"
+---
+<section class="container">
+  {%- if season.art %}
+  <img class="season-art" src="{{ season.art }}" alt="Women of Wayland Podcast Season {{ season.number }} artwork" width="1600" height="800">
+  {%- endif %}
+  <div class="episode-grid">
+    {%- for ep in collections.episodes | bySeason(season.number) %}
+    <article class="episode-card">
+      <h2><a href="{{ ep.url }}">{{ ep.data.title }}</a></h2>
+      <p>{{ ep.data.excerpt }}</p>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+{% include "listen-cta.njk" %}

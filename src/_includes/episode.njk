@@ -1,0 +1,20 @@
+---
+layout: base.njk
+bodyClass: single-episode
+---
+{%- set older = collections.episodes | getNextCollectionItem(page) %}
+{%- set newer = collections.episodes | getPreviousCollectionItem(page) %}
+<article class="episode container">
+  <header class="episode__header">
+    <h1>{{ title }}</h1>
+    <p class="episode__meta"><a href="/season-{{ season }}/">Season {{ season }}</a> / By Yamini Ranjan / <time datetime="{{ page.date.toISOString() }}">{{ page.date | readableDate }}</time></p>
+  </header>
+  <div class="entry-content">
+    {{ content | safe }}
+  </div>
+</article>
+
+<nav class="post-nav container" aria-label="Episodes">
+  <span>{% if older %}<a href="{{ older.url }}">&larr; Previous Episode</a>{% endif %}</span>
+  <span>{% if newer %}<a href="{{ newer.url }}">Next Episode &rarr;</a>{% endif %}</span>
+</nav>
