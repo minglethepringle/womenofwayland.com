@@ -315,6 +315,7 @@ main > section { padding-top: 70px; padding-bottom: 70px; }
 .site-footer nav a { color: var(--heading); text-decoration: none; font-family: var(--font-heading); }
 .site-footer nav a:hover { color: var(--blue); }
 .site-footer p { margin: 0; }
+.site-footer__credits { text-align: right; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 921px) {
@@ -357,5 +358,6 @@ main > section { padding-top: 70px; padding-bottom: 70px; }
   .entry-content .has-text-align-justify { text-align: left; }
   .site-footer__inner { flex-direction: column; text-align: center; }
   .site-footer nav { justify-content: center; }
+  .site-footer__credits { text-align: center; }
   .sponsor-logos img { max-width: 240px; }
 }
