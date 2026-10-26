@@ -25,6 +25,7 @@
           <li{% if item.children %} class="has-children"{% endif %}>
             <a href="{{ item.url }}">{{ item.label }}</a>
             {%- if item.children %}
+            <button class="sub-toggle" aria-expanded="false" aria-label="Show {{ item.label }} menu"></button>
             <ul class="sub-menu">
               {%- for child in item.children %}
               <li><a href="{{ child.url }}">{{ child.label }}</a></li>
@@ -72,6 +73,12 @@
       const open = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!open));
       document.body.classList.toggle("nav-open", !open);
+    });
+    document.querySelectorAll(".sub-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const open = btn.parentElement.classList.toggle("open");
+        btn.setAttribute("aria-expanded", String(open));
+      });
     });
   </script>
 </body>

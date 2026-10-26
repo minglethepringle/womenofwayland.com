@@ -138,7 +138,19 @@ h1, h2, h3, h4 {
   background: var(--blue);
   cursor: pointer;
 }
-.nav-toggle span { display: block; height: 2px; margin: 5px 0; background: var(--white); }
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background: var(--white);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+/* Bars sit 7px apart; slide the outer two onto the middle and cross them. */
+.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.sub-toggle { display: none; }
 
 /* ---------- Heroes ---------- */
 .page-hero {
@@ -334,7 +346,35 @@ main > section { padding-top: 70px; padding-bottom: 70px; }
   .site-nav a,
   .site-header--solid .site-nav > ul > li > a { color: var(--heading); padding: 10px 24px; }
   .has-children > a::after { display: none; }
-  .sub-menu {
+  .has-children { display: flex; flex-wrap: wrap; align-items: center; }
+  .has-children > a { flex: 1; }
+  .sub-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-right: 12px;
+    border: 0;
+    background: none;
+    color: var(--heading);
+    cursor: pointer;
+  }
+  .sub-toggle::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+  .has-children.open .sub-toggle::before { transform: translateY(2px) rotate(-135deg); }
+  .sub-menu,
+  .has-children:hover .sub-menu,
+  .has-children:focus-within .sub-menu {
+    display: none;
+    flex-basis: 100%;
     position: static;
     opacity: 1;
     visibility: visible;
@@ -343,6 +383,7 @@ main > section { padding-top: 70px; padding-bottom: 70px; }
     border: 0;
     padding-left: 16px;
   }
+  .has-children.open .sub-menu { display: block; }
   .site-nav .sub-menu a { border: 0; padding: 6px 24px; }
   .site-header__inner { position: relative; }
 
